@@ -1,4 +1,3 @@
-
 const contactsRouter = require('./routes/api/contacts')
 
 const express = require('express')
@@ -6,6 +5,20 @@ const cors = require('cors')
 const logger = require('morgan')
 const app = express()
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short'
+const mongoose = require('mongoose')
+const { DB_HOST } = require('./config')
+
+// async function main() {
+//   await mongoose.connect('mongodb://DB_HOST')
+// }
+
+mongoose
+  .connect(DB_HOST)
+  .then(() => console.log('Database connection successful'))
+  .catch((error) => {
+    console.log(error.message)
+    process.exit(1)
+  })
 
 app.use(logger(formatsLogger))
 app.use(cors())
