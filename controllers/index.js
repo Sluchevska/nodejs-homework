@@ -1,5 +1,5 @@
-const contacts = require('./contacts/contacts')
-// izmenit
+const contacts = require('./contacts')
+
 
 module.exports = {
   contacts
