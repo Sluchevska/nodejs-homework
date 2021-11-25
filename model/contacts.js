@@ -28,7 +28,7 @@ const joiSchema = Joi.object({
   phone: Joi.string()
     .pattern(/[0-9]/)
     .required(),
-  favorite: Joi.boolean().required(),
+  favorite: Joi.boolean().valid(false).required(),
 })
 
 module.exports = { Contact, joiSchema }
