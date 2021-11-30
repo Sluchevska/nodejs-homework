@@ -39,6 +39,4 @@ const joiRegisterSchema = Joi.object({
     .required(),
 })
 
-
-
 module.exports = { User, joiLoginSchema, joiRegisterSchema }
