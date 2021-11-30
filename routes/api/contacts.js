@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { controllerWrapper, validator } = require('../../middlewares')
-const { joiSchema, statusJoiSchema } = require('../../model/contacts')
+const { joiSchema, statusJoiSchema } = require('../../models/contacts')
 const { contacts: ctrl } = require('../../controllers')
 
 router.get('/', controllerWrapper(ctrl.getAll))
