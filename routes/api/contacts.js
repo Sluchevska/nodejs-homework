@@ -5,9 +5,7 @@ const { joiSchema, statusJoiSchema } = require('../../models/contacts')
 const { contacts: ctrl } = require('../../controllers')
 
 router.get('/', controllerWrapper(ctrl.getAll))
-
 router.get('/:contactId', controllerWrapper(ctrl.getById))
-
 router.post('/', validator(joiSchema), controllerWrapper(ctrl.add))
 
 router.put(
