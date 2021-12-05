@@ -15,7 +15,7 @@ router.put(
 )
 
 router.patch(
-  '/:contactId/favorite',
+  '/:contactId/favorite', auth,
   validator(statusJoiSchema),
   controllerWrapper(ctrl.updateStatus)
 )
