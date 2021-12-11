@@ -4,9 +4,9 @@ const path = require('path')
 const { User } = require('../../models')
 const { Unauthorized } = require('http-errors')
 const Jimp = require('jimp')
+const uploadDir = path.join(__dirname, '../../', 'public', 'avatars')
 
 const updateAvatar = async (req, res) => {
-  const uploadDir = path.join(__dirname, '../../', 'public', 'avatars')
   const { path: tempUpload, originalname } = req.file
   const { _id: id } = req.user
   const imageName = `${id}_${originalname}`
