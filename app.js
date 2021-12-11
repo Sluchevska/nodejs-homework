@@ -29,49 +29,4 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: err.message })
 })
 
-// const multer = require('multer')
-// const path = require('path')
-// const fs = require('fs/promises')
-// const { v4 } = require('uuid')
-// const tempDir = path.join(__dirname, 'temp')
-// const uploadDir = path.join(__dirname, 'public', 'avatars')
-
-// const multerConfig = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, tempDir)
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname)
-//   },
-//   limits: {
-//     fileSize: 2048
-//   }
-// })
-
-// const upload = multer({
-//   storage: multerConfig
-// })
-
-// const avatars = []
-
-// app.post('/api/avatars', upload.single('image'), async (req, res) => {
-//   console.log(req.file)
-//   const { path: tempUpload, originalname } = req.file
-//   const resultUpload = path.join(uploadDir, originalname)
-//   try {
-//     await fs.rename(tempUpload, resultUpload)
-//     const image = path.join('public', 'avatars', originalname)
-//     const newAvatar = {
-//       name: req.body.name,
-//       id: v4(),
-//       image
-//     }
-//     avatars.push(newAvatar)
-
-//     res.status(201).json(newAvatar)
-//   } catch (error) {
-//     await fs.unlink(tempUpload)
-//   }
-// })
-
 module.exports = app
