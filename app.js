@@ -4,6 +4,9 @@ const cors = require('cors')
 const logger = require('morgan')
 const app = express()
 require('dotenv').config()
+const sgMail = require('@sendgrid/mail')
+const { SENDGRID_API_KEY } = process.env
+sgMail.setApiKey(SENDGRID_API_KEY)
 
 const contactsRouter = require('./routes/api/contacts')
 
@@ -30,5 +33,16 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
   res.status(500).json({ message: err.message })
 })
+
+const email = {
+  to: 'nexig82092@videour.com',
+  from: 'alaska.astr@gmail.com',
+  subject: 'News',
+  html: '<p>Good news</p>'
+}
+
+sgMail.send(email)
+  .then(() => console.log('Email send success'))
+  .catch(error => console.log(error.message))
 
 module.exports = app
