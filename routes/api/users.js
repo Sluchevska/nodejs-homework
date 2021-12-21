@@ -12,4 +12,7 @@ router.post('/login', validator(joiLoginSchema), controllerWrapper(ctrl.login))
 router.get('/logout', auth, controllerWrapper(ctrl.logout))
 router.patch('/avatars', auth, upload.single('avatar'), controllerWrapper(ctrl.avatar))
 router.patch('/:contactId', auth, validator(subscriptionJoiSchema), controllerWrapper(ctrl.updateSubscription))
+router.get('/verify/:verificationToken', controllerWrapper(ctrl.verifyEmail))
+router.post('/verify', controllerWrapper(ctrl.repeatVerification))
+
 module.exports = router

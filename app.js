@@ -29,4 +29,15 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: err.message })
 })
 
+// const email = {
+//   to: 'nexig82092@videour.com',
+//   from: 'alaska.astr@gmail.com',
+//   subject: 'Good news',
+//   html: '<p>You are the Best</p>'
+// }
+
+// sgMail.send(email)
+//   .then(() => console.log('Email send success'))
+//   .catch(error => console.log(error.message))
+
 module.exports = app
